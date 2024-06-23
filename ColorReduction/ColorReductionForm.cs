@@ -32,9 +32,35 @@ namespace ColorReduction
 
         private void ProcessButton_Click(object sender, EventArgs e)
         {
+            Random rnd = new Random();
             HashSet<Color> allowedColors = CsvService.ReadColorsFromCsv("extractedFinalPallete");
 
             Bitmap bmpImage = (Bitmap)UploadedPictureBox.Image.Clone();
+
+
+            Color chosenPixelColor;
+            Color closestAllowedColor;
+            int numberOfColors = 32;
+            List <int[]> chosenCoordinates = new List<int[]>();
+            HashSet<Color> chosenColors = new HashSet<Color>();
+
+            int[] currentCoordinates;
+
+            for(int i=0; i<numberOfColors; i++)
+            {
+                currentCoordinates = new int[2];
+                currentCoordinates[0] = rnd.Next(0, bmpImage.Width);
+                currentCoordinates[1] = rnd.Next(0, bmpImage.Height);
+                chosenCoordinates.Add(currentCoordinates);
+
+                chosenPixelColor = bmpImage.GetPixel(chosenCoordinates[i][0], chosenCoordinates[i][1]);
+                closestAllowedColor = ColorDecider.GetClosestColorFromList(chosenPixelColor, allowedColors);
+                chosenColors.Add(closestAllowedColor);
+            }
+            
+            
+
+
             Color pixelColor;
             Color allowedColor;
 
@@ -45,7 +71,7 @@ namespace ColorReduction
                 for (int h = 0; h < bmpImage.Height; h++)
                 {
                     pixelColor = bmpImage.GetPixel(w, h);
-                    allowedColor = ColorDecider.GetClosestColorFromList(pixelColor, allowedColors);
+                    allowedColor = ColorDecider.GetClosestColorFromList(pixelColor, chosenColors);
 
                     if (!usedColors.Contains(allowedColor))
                     {
@@ -54,7 +80,7 @@ namespace ColorReduction
 
                     bmpImage.SetPixel(w, h, allowedColor);
 
-                    ProcessedPictureBox.Image = bmpImage;
+                    ProcessedPictureBox1.Image = bmpImage;
                 }
             }
 
@@ -62,5 +88,9 @@ namespace ColorReduction
 
         }
 
+        private void ProcessedPictureBox_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

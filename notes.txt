@@ -1,4 +1,6 @@
 
+Maybe choose random colors from the image(number of colors), find closest to them. Reduce with this chosen pallete. 
+
 Add some limit to the number of colors on the color reduction stage  
 How to reduce to a more specific number???
 Maybe 1-2-4-8-16 sectors. Find the most common in sector. Than for next sectors. If most common in the sector already has been chosen, choose next one?
