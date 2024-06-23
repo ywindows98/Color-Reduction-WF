@@ -41,7 +41,7 @@
             this.NumberOfSamplesTB3 = new System.Windows.Forms.TextBox();
             this.NumberOfSamplesTB4 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.RandomSeedTB = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.UploadedPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProcessedPictureBox1)).BeginInit();
@@ -172,13 +172,14 @@
             this.label1.TabIndex = 12;
             this.label1.Text = "Number of random points";
             // 
-            // textBox1
+            // RandomSeedTB
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(264, 686);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(87, 29);
-            this.textBox1.TabIndex = 13;
+            this.RandomSeedTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RandomSeedTB.Location = new System.Drawing.Point(264, 686);
+            this.RandomSeedTB.Name = "RandomSeedTB";
+            this.RandomSeedTB.Size = new System.Drawing.Size(87, 29);
+            this.RandomSeedTB.TabIndex = 13;
+            this.RandomSeedTB.Text = "120";
             // 
             // label2
             // 
@@ -196,7 +197,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1630, 819);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.RandomSeedTB);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.NumberOfSamplesTB4);
             this.Controls.Add(this.NumberOfSamplesTB3);
@@ -237,7 +238,7 @@
         private System.Windows.Forms.TextBox NumberOfSamplesTB3;
         private System.Windows.Forms.TextBox NumberOfSamplesTB4;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox RandomSeedTB;
         private System.Windows.Forms.Label label2;
     }
 }

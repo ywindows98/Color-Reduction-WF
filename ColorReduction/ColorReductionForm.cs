@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
@@ -32,22 +33,49 @@ namespace ColorReduction
 
         private void ProcessButton_Click(object sender, EventArgs e)
         {
+            // Initialization and reading stage
             Random rnd = new Random();
             HashSet<Color> fullPallete = CsvService.ReadColorsFromCsv("extractedFinalPallete");
             Bitmap bmpImage = (Bitmap)UploadedPictureBox.Image.Clone();
 
-            int numberOfSamples = 42;
+            List<TextBox> samplesTBs = new List<TextBox>{NumberOfSamplesTB1, NumberOfSamplesTB2, NumberOfSamplesTB3, NumberOfSamplesTB4};
+            List<PictureBox> processedPictureBoxes = new List<PictureBox> {ProcessedPictureBox1, ProcessedPictureBox2, ProcessedPictureBox3, ProcessedPictureBox4};
+            int randomSeed = int.Parse(RandomSeedTB.Text);
 
-            HashSet<Color> chosenPallete = ColorReducer.GetAllowedPalleteFromBitmap(numberOfSamples, 120, bmpImage, fullPallete);
+            List<int> numbersOfSamples = new List<int>();
 
-            Tuple<Bitmap, List<Color>> tupleProcessed = ColorReducer.ReduceColorsOnBitmapWithPallete(bmpImage, chosenPallete);
+            for(int i=0; i<samplesTBs.Count; i++)
+            {
+                numbersOfSamples.Add(int.Parse(samplesTBs[i].Text));
+            }
 
-            Bitmap processedImage = tupleProcessed.Item1;
-            List<Color> usedColors = tupleProcessed.Item2;
+            // Processing stage
+            List<HashSet<Color>> chosenPalletes = new List<HashSet<Color>>();
+            List<Bitmap> processedImages = new List<Bitmap>();
+            List<List<Color>> usedColors = new List<List<Color>>();
 
-            ProcessedPictureBox1.Image = processedImage;
+            Tuple<Bitmap, List<Color>> tupleProcessed;
 
-            ConsoleTextBox.Text = $"Number of used colors: {usedColors.Count}";
+            for (int i=0; i<samplesTBs.Count; i++)
+            {
+                chosenPalletes.Add(ColorReducer.GetAllowedPalleteFromBitmap(numbersOfSamples[i], randomSeed, bmpImage, fullPallete) );
+                tupleProcessed = ColorReducer.ReduceColorsOnBitmapWithPallete(bmpImage, chosenPalletes[i]);
+
+                processedImages.Add(tupleProcessed.Item1);
+                usedColors.Add(tupleProcessed.Item2);
+
+                processedPictureBoxes[i].Image = processedImages[i];
+            }
+
+            // Logs
+            string logText = "";
+
+            for(int i=0; i<usedColors.Count; i++)
+            {
+                logText += $"Number of used colors for picture {i+1}: {usedColors[i].Count}\n";
+            }
+
+            ConsoleTextBox.Text = logText;
 
         }
 

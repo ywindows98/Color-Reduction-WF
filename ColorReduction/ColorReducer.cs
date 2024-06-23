@@ -73,11 +73,13 @@ namespace ColorReduction
 
             List<Color> usedColors = new List<Color>();
 
-            for (int w = 0; w < image.Width; w++)
+            Bitmap processedImage = (Bitmap)image.Clone();
+
+            for (int w = 0; w < processedImage.Width; w++)
             {
-                for (int h = 0; h < image.Height; h++)
+                for (int h = 0; h < processedImage.Height; h++)
                 {
-                    pixelColor = image.GetPixel(w, h);
+                    pixelColor = processedImage.GetPixel(w, h);
                     allowedColor = ColorDecider.GetClosestColorFromList(pixelColor, pallete);
 
                     if (!usedColors.Contains(allowedColor))
@@ -85,11 +87,11 @@ namespace ColorReduction
                         usedColors.Add(allowedColor);
                     }
 
-                    image.SetPixel(w, h, allowedColor);
+                    processedImage.SetPixel(w, h, allowedColor);
                 }
             }
 
-            return new Tuple<Bitmap, List<Color>>(image, usedColors);
+            return new Tuple<Bitmap, List<Color>>(processedImage, usedColors);
         }
     }
 }
