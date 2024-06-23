@@ -38,31 +38,14 @@ namespace ColorReduction
 
             int numberOfSamples = 42;
 
-            HashSet<Color> chosenPallete = ColorReducer.GetAllowedPalleteFromBitmap(numberOfSamples, bmpImage, fullPallete);
+            HashSet<Color> chosenPallete = ColorReducer.GetAllowedPalleteFromBitmap(numberOfSamples, 120, bmpImage, fullPallete);
 
+            Tuple<Bitmap, List<Color>> tupleProcessed = ColorReducer.ReduceColorsOnBitmapWithPallete(bmpImage, chosenPallete);
 
-            Color pixelColor;
-            Color allowedColor;
+            Bitmap processedImage = tupleProcessed.Item1;
+            List<Color> usedColors = tupleProcessed.Item2;
 
-            List<Color> usedColors = new List<Color>();
-
-            for (int w = 0; w < bmpImage.Width; w++)
-            {
-                for (int h = 0; h < bmpImage.Height; h++)
-                {
-                    pixelColor = bmpImage.GetPixel(w, h);
-                    allowedColor = ColorDecider.GetClosestColorFromList(pixelColor, chosenPallete);
-
-                    if (!usedColors.Contains(allowedColor))
-                    {
-                        usedColors.Add(allowedColor);
-                    }
-
-                    bmpImage.SetPixel(w, h, allowedColor);
-
-                    ProcessedPictureBox1.Image = bmpImage;
-                }
-            }
+            ProcessedPictureBox1.Image = processedImage;
 
             ConsoleTextBox.Text = $"Number of used colors: {usedColors.Count}";
 

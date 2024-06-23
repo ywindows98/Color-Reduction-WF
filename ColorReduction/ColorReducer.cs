@@ -9,9 +9,10 @@ namespace ColorReduction
 {
     public static class ColorReducer
     {
-        public static List<int[]> ChooseRandomSamplesCoordinates(int numberOfSamples, Bitmap image)
+        public static List<int[]> ChooseRandomSamplesCoordinates(int numberOfSamples, Bitmap image, int seed)
         {
-            Random rnd = new Random();
+            Random rnd = new Random(seed);
+            
     
             List<int[]> chosenCoordinates = new List<int[]>();
             int[] currentCoordinates;
@@ -55,14 +56,40 @@ namespace ColorReduction
             return allowedPallete;
         }
 
-        public static HashSet<Color> GetAllowedPalleteFromBitmap(int numberOfSamples, Bitmap image, HashSet<Color> fullPallete)
+        public static HashSet<Color> GetAllowedPalleteFromBitmap(int numberOfSamples, int seed, Bitmap image, HashSet<Color> fullPallete)
         {
-            List<int[]> coordinates = ChooseRandomSamplesCoordinates(numberOfSamples, image);
+            List<int[]> coordinates = ChooseRandomSamplesCoordinates(numberOfSamples, image, seed);
             HashSet<Color> pixelSamples = GetPixelsByCoordinates(coordinates, image);
 
             HashSet<Color> allowedPallete = GetAllowedPalleteByPixelSamples(pixelSamples, fullPallete);
 
             return allowedPallete;
+        }
+
+        public static Tuple<Bitmap, List<Color>> ReduceColorsOnBitmapWithPallete(Bitmap image, HashSet<Color> pallete)
+        {
+            Color pixelColor;
+            Color allowedColor;
+
+            List<Color> usedColors = new List<Color>();
+
+            for (int w = 0; w < image.Width; w++)
+            {
+                for (int h = 0; h < image.Height; h++)
+                {
+                    pixelColor = image.GetPixel(w, h);
+                    allowedColor = ColorDecider.GetClosestColorFromList(pixelColor, pallete);
+
+                    if (!usedColors.Contains(allowedColor))
+                    {
+                        usedColors.Add(allowedColor);
+                    }
+
+                    image.SetPixel(w, h, allowedColor);
+                }
+            }
+
+            return new Tuple<Bitmap, List<Color>>(image, usedColors);
         }
     }
 }

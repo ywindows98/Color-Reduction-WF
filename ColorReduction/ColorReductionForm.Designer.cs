@@ -41,6 +41,8 @@
             this.NumberOfSamplesTB3 = new System.Windows.Forms.TextBox();
             this.NumberOfSamplesTB4 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.UploadedPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProcessedPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProcessedPictureBox2)).BeginInit();
@@ -127,7 +129,7 @@
             // NumberOfSamplesTB1
             // 
             this.NumberOfSamplesTB1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.NumberOfSamplesTB1.Location = new System.Drawing.Point(126, 670);
+            this.NumberOfSamplesTB1.Location = new System.Drawing.Point(399, 670);
             this.NumberOfSamplesTB1.Name = "NumberOfSamplesTB1";
             this.NumberOfSamplesTB1.Size = new System.Drawing.Size(44, 26);
             this.NumberOfSamplesTB1.TabIndex = 8;
@@ -136,45 +138,65 @@
             // NumberOfSamplesTB2
             // 
             this.NumberOfSamplesTB2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.NumberOfSamplesTB2.Location = new System.Drawing.Point(191, 670);
+            this.NumberOfSamplesTB2.Location = new System.Drawing.Point(460, 670);
             this.NumberOfSamplesTB2.Name = "NumberOfSamplesTB2";
             this.NumberOfSamplesTB2.Size = new System.Drawing.Size(44, 26);
             this.NumberOfSamplesTB2.TabIndex = 9;
-            this.NumberOfSamplesTB2.Text = "24";
+            this.NumberOfSamplesTB2.Text = "32";
             // 
             // NumberOfSamplesTB3
             // 
             this.NumberOfSamplesTB3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.NumberOfSamplesTB3.Location = new System.Drawing.Point(126, 709);
+            this.NumberOfSamplesTB3.Location = new System.Drawing.Point(399, 709);
             this.NumberOfSamplesTB3.Name = "NumberOfSamplesTB3";
             this.NumberOfSamplesTB3.Size = new System.Drawing.Size(44, 26);
             this.NumberOfSamplesTB3.TabIndex = 10;
-            this.NumberOfSamplesTB3.Text = "32";
+            this.NumberOfSamplesTB3.Text = "48";
             // 
             // NumberOfSamplesTB4
             // 
             this.NumberOfSamplesTB4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.NumberOfSamplesTB4.Location = new System.Drawing.Point(191, 709);
+            this.NumberOfSamplesTB4.Location = new System.Drawing.Point(460, 709);
             this.NumberOfSamplesTB4.Name = "NumberOfSamplesTB4";
             this.NumberOfSamplesTB4.Size = new System.Drawing.Size(44, 26);
             this.NumberOfSamplesTB4.TabIndex = 11;
-            this.NumberOfSamplesTB4.Text = "42";
+            this.NumberOfSamplesTB4.Text = "64";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(87, 647);
+            this.label1.Location = new System.Drawing.Point(353, 647);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(188, 20);
             this.label1.TabIndex = 12;
             this.label1.Text = "Number of random points";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox1.Location = new System.Drawing.Point(264, 686);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(87, 29);
+            this.textBox1.TabIndex = 13;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(124, 689);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(134, 24);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Random seed:";
             // 
             // ColorReductionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1630, 819);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.NumberOfSamplesTB4);
             this.Controls.Add(this.NumberOfSamplesTB3);
@@ -215,5 +237,7 @@
         private System.Windows.Forms.TextBox NumberOfSamplesTB3;
         private System.Windows.Forms.TextBox NumberOfSamplesTB4;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label2;
     }
 }
