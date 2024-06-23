@@ -33,32 +33,12 @@ namespace ColorReduction
         private void ProcessButton_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
-            HashSet<Color> allowedColors = CsvService.ReadColorsFromCsv("extractedFinalPallete");
-
+            HashSet<Color> fullPallete = CsvService.ReadColorsFromCsv("extractedFinalPallete");
             Bitmap bmpImage = (Bitmap)UploadedPictureBox.Image.Clone();
 
+            int numberOfSamples = 42;
 
-            Color chosenPixelColor;
-            Color closestAllowedColor;
-            int numberOfColors = 32;
-            List <int[]> chosenCoordinates = new List<int[]>();
-            HashSet<Color> chosenColors = new HashSet<Color>();
-
-            int[] currentCoordinates;
-
-            for(int i=0; i<numberOfColors; i++)
-            {
-                currentCoordinates = new int[2];
-                currentCoordinates[0] = rnd.Next(0, bmpImage.Width);
-                currentCoordinates[1] = rnd.Next(0, bmpImage.Height);
-                chosenCoordinates.Add(currentCoordinates);
-
-                chosenPixelColor = bmpImage.GetPixel(chosenCoordinates[i][0], chosenCoordinates[i][1]);
-                closestAllowedColor = ColorDecider.GetClosestColorFromList(chosenPixelColor, allowedColors);
-                chosenColors.Add(closestAllowedColor);
-            }
-            
-            
+            HashSet<Color> chosenPallete = ColorReducer.GetAllowedPalleteFromBitmap(numberOfSamples, bmpImage, fullPallete);
 
 
             Color pixelColor;
@@ -71,7 +51,7 @@ namespace ColorReduction
                 for (int h = 0; h < bmpImage.Height; h++)
                 {
                     pixelColor = bmpImage.GetPixel(w, h);
-                    allowedColor = ColorDecider.GetClosestColorFromList(pixelColor, chosenColors);
+                    allowedColor = ColorDecider.GetClosestColorFromList(pixelColor, chosenPallete);
 
                     if (!usedColors.Contains(allowedColor))
                     {

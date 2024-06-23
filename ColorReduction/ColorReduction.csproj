@@ -72,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ColorDecider.cs" />
+    <Compile Include="ColorReducer.cs" />
     <Compile Include="ColorReductionForm.cs">
       <SubType>Form</SubType>
     </Compile>
