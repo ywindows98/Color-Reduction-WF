@@ -35,6 +35,7 @@
             this.ResetPointsButton = new System.Windows.Forms.Button();
             this.AmountPointsLabel = new System.Windows.Forms.Label();
             this.ConsoleTextBox = new System.Windows.Forms.RichTextBox();
+            this.SaveImageButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.UploadedPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProcessedPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -82,7 +83,7 @@
             // 
             // ResetPointsButton
             // 
-            this.ResetPointsButton.BackColor = System.Drawing.Color.IndianRed;
+            this.ResetPointsButton.BackColor = System.Drawing.Color.LightCoral;
             this.ResetPointsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ResetPointsButton.Location = new System.Drawing.Point(477, 584);
             this.ResetPointsButton.Name = "ResetPointsButton";
@@ -109,11 +110,24 @@
             this.ConsoleTextBox.TabIndex = 8;
             this.ConsoleTextBox.Text = "";
             // 
+            // SaveImageButton
+            // 
+            this.SaveImageButton.BackColor = System.Drawing.Color.LightGreen;
+            this.SaveImageButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SaveImageButton.Location = new System.Drawing.Point(729, 584);
+            this.SaveImageButton.Name = "SaveImageButton";
+            this.SaveImageButton.Size = new System.Drawing.Size(155, 50);
+            this.SaveImageButton.TabIndex = 9;
+            this.SaveImageButton.Text = "Save resulting image";
+            this.SaveImageButton.UseVisualStyleBackColor = false;
+            this.SaveImageButton.Click += new System.EventHandler(this.SaveImageButton_Click);
+            // 
             // SpecificPointsReductionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1352, 822);
+            this.Controls.Add(this.SaveImageButton);
             this.Controls.Add(this.ConsoleTextBox);
             this.Controls.Add(this.AmountPointsLabel);
             this.Controls.Add(this.ResetPointsButton);
@@ -139,5 +153,6 @@
         private System.Windows.Forms.Button ResetPointsButton;
         private System.Windows.Forms.Label AmountPointsLabel;
         private System.Windows.Forms.RichTextBox ConsoleTextBox;
+        private System.Windows.Forms.Button SaveImageButton;
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -77,5 +78,16 @@ namespace ColorReduction
             //UploadedPictureBox.Image = image;
         }
 
+        private void SaveImageButton_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFile = new SaveFileDialog();
+            saveFile.Filter = "JPG Image|*.jpg";
+            saveFile.RestoreDirectory = true;
+
+            if(saveFile.ShowDialog() == DialogResult.OK)
+            {   
+                lastProcessedImage.Save(saveFile.FileName, ImageFormat.Jpeg);
+            }
+        }
     }
 }
