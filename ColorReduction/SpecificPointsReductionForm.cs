@@ -31,11 +31,11 @@ namespace ColorReduction
 
         private void UploadedPictureBox_MouseClick(object sender, MouseEventArgs e)
         {
-            Bitmap image = (Bitmap)UploadedPictureBox.Image;
-            image = BitmapDrawer.DrawCrossArountPoint(image, e.X, e.Y);
-            
-            ConsoleTextBox.Text = $"X: {e.X} Y: {e.Y} Location: {e.Location}";
-            UploadedPictureBox.Image = image;
+            //Bitmap image = (Bitmap)UploadedPictureBox.Image;
+            //image = BitmapDrawer.DrawCrossArountPoint(image, e.X, e.Y);
+
+            //ConsoleTextBox.Text = $"X: {e.X} Y: {e.Y} Location: {e.Location}";
+            //UploadedPictureBox.Image = image;
         }
     }
 }

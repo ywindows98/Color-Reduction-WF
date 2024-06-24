@@ -46,6 +46,7 @@
             this.UploadedPictureBox.Location = new System.Drawing.Point(25, 52);
             this.UploadedPictureBox.Name = "UploadedPictureBox";
             this.UploadedPictureBox.Size = new System.Drawing.Size(637, 437);
+            this.UploadedPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.UploadedPictureBox.TabIndex = 0;
             this.UploadedPictureBox.TabStop = false;
             this.UploadedPictureBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.UploadedPictureBox_MouseClick);
@@ -55,6 +56,7 @@
             this.ProcessedPictureBox.Location = new System.Drawing.Point(693, 52);
             this.ProcessedPictureBox.Name = "ProcessedPictureBox";
             this.ProcessedPictureBox.Size = new System.Drawing.Size(637, 437);
+            this.ProcessedPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ProcessedPictureBox.TabIndex = 1;
             this.ProcessedPictureBox.TabStop = false;
             // 
