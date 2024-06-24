@@ -56,6 +56,14 @@ namespace ColorReduction
             return allowedPallete;
         }
 
+        public static HashSet<Color> GetAllowedPalleteBySampleCoordinates(List<int[]> coordinates, Bitmap image, HashSet<Color> fullPallete)
+        {
+            HashSet<Color> pixelSamples = GetPixelsByCoordinates(coordinates, image);
+            HashSet<Color> allowedPallete = GetAllowedPalleteByPixelSamples(pixelSamples, fullPallete);
+
+            return allowedPallete;
+        }
+
         public static HashSet<Color> GetRandomAllowedPalleteFromBitmap(int numberOfSamples, int seed, Bitmap image, HashSet<Color> fullPallete)
         {
             List<int[]> coordinates = ChooseRandomSamplesCoordinates(numberOfSamples, image, seed);
@@ -92,6 +100,13 @@ namespace ColorReduction
             }
 
             return new Tuple<Bitmap, List<Color>>(processedImage, usedColors);
+        }
+
+        public static Tuple<Bitmap, List<Color>> ReduceColorsOnBitmapWithSampleCoordinates(List<int[]> coordinates, Bitmap image, HashSet<Color> fullPallete)
+        {
+            HashSet<Color> allowedPallete = GetAllowedPalleteBySampleCoordinates(coordinates, image, fullPallete);
+
+            return ReduceColorsOnBitmapWithPallete(image, allowedPallete);
         }
     }
 }

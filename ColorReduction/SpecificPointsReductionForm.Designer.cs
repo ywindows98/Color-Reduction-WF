@@ -78,6 +78,7 @@
             this.ProcessButton.TabIndex = 3;
             this.ProcessButton.Text = "Process Image";
             this.ProcessButton.UseVisualStyleBackColor = true;
+            this.ProcessButton.Click += new System.EventHandler(this.ProcessButton_Click);
             // 
             // ResetPointsButton
             // 
