@@ -36,6 +36,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.AmountPointsLabel = new System.Windows.Forms.Label();
+            this.ConsoleTextBox = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.UploadedPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProcessedPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -45,16 +46,15 @@
             this.UploadedPictureBox.Location = new System.Drawing.Point(25, 52);
             this.UploadedPictureBox.Name = "UploadedPictureBox";
             this.UploadedPictureBox.Size = new System.Drawing.Size(637, 437);
-            this.UploadedPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.UploadedPictureBox.TabIndex = 0;
             this.UploadedPictureBox.TabStop = false;
+            this.UploadedPictureBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.UploadedPictureBox_MouseClick);
             // 
             // ProcessedPictureBox
             // 
             this.ProcessedPictureBox.Location = new System.Drawing.Point(693, 52);
             this.ProcessedPictureBox.Name = "ProcessedPictureBox";
             this.ProcessedPictureBox.Size = new System.Drawing.Size(637, 437);
-            this.ProcessedPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ProcessedPictureBox.TabIndex = 1;
             this.ProcessedPictureBox.TabStop = false;
             // 
@@ -119,11 +119,20 @@
             this.AmountPointsLabel.TabIndex = 7;
             this.AmountPointsLabel.Text = "You have chosen 0 points";
             // 
+            // ConsoleTextBox
+            // 
+            this.ConsoleTextBox.Location = new System.Drawing.Point(945, 504);
+            this.ConsoleTextBox.Name = "ConsoleTextBox";
+            this.ConsoleTextBox.Size = new System.Drawing.Size(292, 191);
+            this.ConsoleTextBox.TabIndex = 8;
+            this.ConsoleTextBox.Text = "";
+            // 
             // SpecificPointsReductionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1352, 822);
+            this.Controls.Add(this.ConsoleTextBox);
             this.Controls.Add(this.AmountPointsLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
@@ -151,5 +160,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label AmountPointsLabel;
+        private System.Windows.Forms.RichTextBox ConsoleTextBox;
     }
 }

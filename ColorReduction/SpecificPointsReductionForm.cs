@@ -25,5 +25,14 @@ namespace ColorReduction
                 UploadedPictureBox.Image = new Bitmap(openFile.FileName);
             }
         }
+
+        private void UploadedPictureBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            Bitmap image = (Bitmap)UploadedPictureBox.Image;
+            image = BitmapDrawer.DrawCrossArountPoint(image, e.X, e.Y);
+            
+            ConsoleTextBox.Text = $"X: {e.X} Y: {e.Y} Location: {e.Location}";
+            UploadedPictureBox.Image = image;
+        }
     }
 }
