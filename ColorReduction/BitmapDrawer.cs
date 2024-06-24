@@ -16,24 +16,28 @@ namespace ColorReduction
             
             for(int i=0; i<6; i++)
             {
-                if (X- 2 -i>=0)
+                for (int j = -1; j < 2; j++)
                 {
-                    newImage.SetPixel(X-2-i, Y, Color.Red);
-                }
+                    if (X - 2 - i >= 0 && Y+j >= 0 && Y+j < newImage.Height)
+                    {
+                        newImage.SetPixel(X - 2 - i, Y + j, Color.Red);
+                    }
 
-                if (X + 2 + i <= newImage.Width)
-                {
-                    newImage.SetPixel(X+2+i, Y, Color.Red);
-                }
+                    if (X + 2 + i < newImage.Width && Y + j >= 0 && Y + j < newImage.Height)
+                    {
+                        newImage.SetPixel(X + 2 + i, Y + j, Color.Red);
+                    }
 
-                if (Y - 2 - i >= 0)
-                {
-                    newImage.SetPixel(X, Y-2-i, Color.Red);
-                }
+                    if (Y - 2 - i >= 0 && X + j >= 0 && X + j < newImage.Width)
+                    {
+                        newImage.SetPixel(X + j, Y - 2 - i, Color.Red);
+                    }
 
-                if (Y + 2 + i <= newImage.Height)
-                {
-                    newImage.SetPixel(X, Y + 2 + i, Color.Red);
+                    if (Y + 2 + i < newImage.Height && X + j >= 0 && X + j < newImage.Width)
+                    {
+                        newImage.SetPixel(X + j, Y + 2 + i, Color.Red);
+                    }
+ 
                 }
             }
 

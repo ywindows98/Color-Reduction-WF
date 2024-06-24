@@ -51,6 +51,7 @@
             this.SavePointsButton.TabIndex = 1;
             this.SavePointsButton.Text = "Save";
             this.SavePointsButton.UseVisualStyleBackColor = true;
+            this.SavePointsButton.Click += new System.EventHandler(this.SavePointsButton_Click);
             // 
             // AmountPointsLabel
             // 

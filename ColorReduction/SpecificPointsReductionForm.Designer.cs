@@ -33,8 +33,6 @@
             this.UploadButton = new System.Windows.Forms.Button();
             this.ProcessButton = new System.Windows.Forms.Button();
             this.ResetPointsButton = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.AmountPointsLabel = new System.Windows.Forms.Label();
             this.ConsoleTextBox = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.UploadedPictureBox)).BeginInit();
@@ -92,25 +90,6 @@
             this.ResetPointsButton.Text = "Reset chosen points";
             this.ResetPointsButton.UseVisualStyleBackColor = false;
             // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(230, 617);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(72, 26);
-            this.textBox1.TabIndex = 5;
-            this.textBox1.Text = "30";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(25, 620);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(199, 20);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Maximum amount of points";
-            // 
             // AmountPointsLabel
             // 
             this.AmountPointsLabel.AutoSize = true;
@@ -136,8 +115,6 @@
             this.ClientSize = new System.Drawing.Size(1352, 822);
             this.Controls.Add(this.ConsoleTextBox);
             this.Controls.Add(this.AmountPointsLabel);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.ResetPointsButton);
             this.Controls.Add(this.ProcessButton);
             this.Controls.Add(this.UploadButton);
@@ -159,8 +136,6 @@
         private System.Windows.Forms.Button UploadButton;
         private System.Windows.Forms.Button ProcessButton;
         private System.Windows.Forms.Button ResetPointsButton;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label AmountPointsLabel;
         private System.Windows.Forms.RichTextBox ConsoleTextBox;
     }

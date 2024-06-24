@@ -12,9 +12,17 @@ namespace ColorReduction
 {
     public partial class SpecificPointsReductionForm : Form
     {
+        public List<int[]> ChosenCoordinates { get; set; }
+        private Bitmap originalImage;
         public SpecificPointsReductionForm()
         {
             InitializeComponent();
+        }
+
+        public void UpdateAfterPicking(Bitmap image)
+        {
+            UploadedPictureBox.Image = image;
+            AmountPointsLabel.Text = $"You have chosen {ChosenCoordinates.Count} points";
         }
 
         private void UploadButton_Click(object sender, EventArgs e)
@@ -23,8 +31,11 @@ namespace ColorReduction
             if (openFile.ShowDialog() == DialogResult.OK)
             {
                 UploadedPictureBox.Image = new Bitmap(openFile.FileName);
-                ImageFullViewForm imageForm = new ImageFullViewForm((Bitmap)UploadedPictureBox.Image);
+                originalImage = (Bitmap)UploadedPictureBox.Image.Clone();
+                ImageFullViewForm imageForm = new ImageFullViewForm((Bitmap)UploadedPictureBox.Image, this);
+                this.Hide();
                 imageForm.ShowDialog();
+                
             }
             
         }

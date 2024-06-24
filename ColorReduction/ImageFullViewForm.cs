@@ -14,9 +14,13 @@ namespace ColorReduction
     public partial class ImageFullViewForm : Form
     {
         private int amoutOfPoints;
-        public ImageFullViewForm(Bitmap image)
+        private List<int[]> chosenCoordinates= new List<int[]>();
+        private SpecificPointsReductionForm parentReductionForm;
+        public ImageFullViewForm(Bitmap image, SpecificPointsReductionForm parentForm)
         {
             InitializeComponent();
+            parentReductionForm = parentForm;
+  
             amoutOfPoints = 0;
             this.Width = image.Width;
             this.Height = image.Height + 100 + SavePointsButton.Height;
@@ -32,10 +36,18 @@ namespace ColorReduction
         {
             Bitmap image = (Bitmap)FullPictureBox.Image;
             image = BitmapDrawer.DrawCrossArountPoint(image, e.X, e.Y);
+            chosenCoordinates.Add(new int[] {e.X, e.Y});
             amoutOfPoints += 1;
             AmountPointsLabel.Text = $"You have chosen {amoutOfPoints} points";
-            //ConsoleTextBox.Text = $"X: {e.X} Y: {e.Y} Location: {e.Location}";
             FullPictureBox.Image = image;
+        }
+
+        private void SavePointsButton_Click(object sender, EventArgs e)
+        {
+            parentReductionForm.ChosenCoordinates = chosenCoordinates;
+            parentReductionForm.UpdateAfterPicking((Bitmap)FullPictureBox.Image);
+            this.Close();
+            parentReductionForm.Show();
         }
     }
 }
