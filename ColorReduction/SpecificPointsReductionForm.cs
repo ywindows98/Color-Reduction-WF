@@ -23,7 +23,10 @@ namespace ColorReduction
             if (openFile.ShowDialog() == DialogResult.OK)
             {
                 UploadedPictureBox.Image = new Bitmap(openFile.FileName);
+                ImageFullViewForm imageForm = new ImageFullViewForm((Bitmap)UploadedPictureBox.Image);
+                imageForm.ShowDialog();
             }
+            
         }
 
         private void UploadedPictureBox_MouseClick(object sender, MouseEventArgs e)
