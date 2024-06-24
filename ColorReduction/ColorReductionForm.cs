@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -16,6 +17,7 @@ namespace ColorReduction
 {
     public partial class ColorReductionForm : Form
     {
+        private Bitmap lastProcessedImage;
         public ColorReductionForm()
         {
             InitializeComponent();
@@ -67,6 +69,8 @@ namespace ColorReduction
                 processedPictureBoxes[i].Image = processedImages[i];
             }
 
+            lastProcessedImage = (Bitmap)processedImages[3].Clone();
+
             // Logs
             string logText = "";
 
@@ -87,6 +91,18 @@ namespace ColorReduction
         private void ColorReductionForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void SaveImageButton_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFile = new SaveFileDialog();
+            saveFile.Filter = "JPG Image|*.jpg";
+            saveFile.RestoreDirectory = true;
+
+            if (saveFile.ShowDialog() == DialogResult.OK)
+            {
+                lastProcessedImage.Save(saveFile.FileName, ImageFormat.Jpeg);
+            }
         }
     }
 }
