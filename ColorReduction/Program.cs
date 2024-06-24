@@ -16,7 +16,7 @@ namespace ColorReduction
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ColorReductionForm());
+            Application.Run(new ChoiceForm());
         }
     }
 }

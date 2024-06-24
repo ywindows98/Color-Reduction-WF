@@ -54,3 +54,5 @@ C:\Users\windo\Desktop\Projects\ColorReductionWF\ColorReduction\obj\Debug\ColorR
 C:\Users\windo\Desktop\Projects\ColorReductionWF\ColorReduction\obj\Debug\ColorReduction.csproj.CopyComplete
 C:\Users\windo\Desktop\Projects\ColorReductionWF\ColorReduction\obj\Debug\ColorReduction.exe
 C:\Users\windo\Desktop\Projects\ColorReductionWF\ColorReduction\obj\Debug\ColorReduction.pdb
+C:\Users\windo\Desktop\Projects\ColorReduction\ColorReduction\obj\Debug\ColorReduction.ChoiceForm.resources
+C:\Users\windo\Desktop\Projects\ColorReduction\ColorReduction\obj\Debug\ColorReduction.SpecificPointsReductionForm.resources

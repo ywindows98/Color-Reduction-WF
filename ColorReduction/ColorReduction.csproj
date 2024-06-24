@@ -71,6 +71,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChoiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChoiceForm.Designer.cs">
+      <DependentUpon>ChoiceForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ColorDecider.cs" />
     <Compile Include="ColorReducer.cs" />
     <Compile Include="ColorReductionForm.cs">
@@ -83,6 +89,15 @@
     <Compile Include="CustomColor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpecificPointsReductionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SpecificPointsReductionForm.Designer.cs">
+      <DependentUpon>SpecificPointsReductionForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ChoiceForm.resx">
+      <DependentUpon>ChoiceForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ColorReductionForm.resx">
       <DependentUpon>ColorReductionForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -95,6 +110,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SpecificPointsReductionForm.resx">
+      <DependentUpon>SpecificPointsReductionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

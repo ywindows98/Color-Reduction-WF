@@ -58,7 +58,7 @@ namespace ColorReduction
 
             for (int i=0; i<samplesTBs.Count; i++)
             {
-                chosenPalletes.Add(ColorReducer.GetAllowedPalleteFromBitmap(numbersOfSamples[i], randomSeed, bmpImage, fullPallete) );
+                chosenPalletes.Add(ColorReducer.GetRandomAllowedPalleteFromBitmap(numbersOfSamples[i], randomSeed, bmpImage, fullPallete) );
                 tupleProcessed = ColorReducer.ReduceColorsOnBitmapWithPallete(bmpImage, chosenPalletes[i]);
 
                 processedImages.Add(tupleProcessed.Item1);
@@ -80,6 +80,11 @@ namespace ColorReduction
         }
 
         private void ProcessedPictureBox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ColorReductionForm_Load(object sender, EventArgs e)
         {
 
         }

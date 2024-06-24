@@ -213,6 +213,7 @@
             this.Controls.Add(this.UploadButton);
             this.Name = "ColorReductionForm";
             this.Text = "ColorReductionForm";
+            this.Load += new System.EventHandler(this.ColorReductionForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.UploadedPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProcessedPictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProcessedPictureBox2)).EndInit();

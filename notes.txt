@@ -1,5 +1,5 @@
 
-Maybe choose random colors from the image(number of colors), find closest to them. Reduce with this chosen pallete. 
+Maybe choose random colors from the image(number of colors), find closest to them. Reduce with this chosen pallete. ++
 
 Add some limit to the number of colors on the color reduction stage  
 How to reduce to a more specific number???
@@ -8,6 +8,7 @@ Maybe 1-2-4-8-16 sectors. Find the most common in sector. Than for next sectors.
 Or try find most distant color - add, find next most distant from those two - repeat(maybe each color paradigm has to be respresented by 2 closest colors?)
 --
 Process image once using entire color base. Than try choose N random points to be main classes(colors) and process it again using only those colors?
+///-----
 
 
 Add choosing some colors? Points on the image with colors you would like to be used(closest to them would be chosen from the allowed base).

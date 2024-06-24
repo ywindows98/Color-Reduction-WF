@@ -56,7 +56,7 @@ namespace ColorReduction
             return allowedPallete;
         }
 
-        public static HashSet<Color> GetAllowedPalleteFromBitmap(int numberOfSamples, int seed, Bitmap image, HashSet<Color> fullPallete)
+        public static HashSet<Color> GetRandomAllowedPalleteFromBitmap(int numberOfSamples, int seed, Bitmap image, HashSet<Color> fullPallete)
         {
             List<int[]> coordinates = ChooseRandomSamplesCoordinates(numberOfSamples, image, seed);
             HashSet<Color> pixelSamples = GetPixelsByCoordinates(coordinates, image);
