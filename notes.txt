@@ -13,9 +13,10 @@ Process image once using entire color base. Than try choose N random points to b
 
 Add choosing some colors? Points on the image with colors you would like to be used(closest to them would be chosen from the allowed base). ++
 
-Add processed image saving.
+Add processed image saving.++
 
-Add smoothing out 
+Add smoothing out
+Maybe pass through cycle 10-20 times. Repaint pixels that surrounded by 3 pixels of other color. 
 
 Add lines generation and sector cleaning
 Add color-number generation

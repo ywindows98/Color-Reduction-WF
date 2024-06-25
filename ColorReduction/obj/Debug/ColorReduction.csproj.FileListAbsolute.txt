@@ -57,3 +57,4 @@ C:\Users\windo\Desktop\Projects\ColorReductionWF\ColorReduction\obj\Debug\ColorR
 C:\Users\windo\Desktop\Projects\ColorReduction\ColorReduction\obj\Debug\ColorReduction.ChoiceForm.resources
 C:\Users\windo\Desktop\Projects\ColorReduction\ColorReduction\obj\Debug\ColorReduction.SpecificPointsReductionForm.resources
 C:\Users\windo\Desktop\Projects\ColorReduction\ColorReduction\obj\Debug\ColorReduction.ImageFullViewForm.resources
+C:\Users\windo\Desktop\Projects\ColorReduction\ColorReduction\obj\Debug\ColorReduction.SmootherForm.resources

@@ -30,6 +30,7 @@
         {
             this.RandomReduceButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.SmootherButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // RandomReduceButton
@@ -54,11 +55,23 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // SmootherButton
+            // 
+            this.SmootherButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SmootherButton.Location = new System.Drawing.Point(560, 373);
+            this.SmootherButton.Name = "SmootherButton";
+            this.SmootherButton.Size = new System.Drawing.Size(214, 69);
+            this.SmootherButton.TabIndex = 2;
+            this.SmootherButton.Text = "Smooth the edges";
+            this.SmootherButton.UseVisualStyleBackColor = true;
+            this.SmootherButton.Click += new System.EventHandler(this.SmootherButton_Click);
+            // 
             // ChoiceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1045, 615);
+            this.Controls.Add(this.SmootherButton);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.RandomReduceButton);
             this.Name = "ChoiceForm";
@@ -71,5 +84,6 @@
 
         private System.Windows.Forms.Button RandomReduceButton;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button SmootherButton;
     }
 }

@@ -33,5 +33,13 @@ namespace ColorReduction
             newForm.ShowDialog();
             this.Close();
         }
+
+        private void SmootherButton_Click(object sender, EventArgs e)
+        {
+            SmootherForm newForm = new SmootherForm();
+            this.Hide();
+            newForm.ShowDialog();
+            this.Close();
+        }
     }
 }
