@@ -16,7 +16,7 @@ Add choosing some colors? Points on the image with colors you would like to be u
 Add processed image saving.++
 
 Add smoothing out
-Maybe pass through cycle 10-20 times. Repaint pixels that surrounded by 3 pixels of other color. 
+Maybe pass through cycle 10-20 times. Repaint pixels that surrounded by 3 pixels of other color.??? 
 
 Add lines generation and sector cleaning
 Add color-number generation
