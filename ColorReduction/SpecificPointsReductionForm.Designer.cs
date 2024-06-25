@@ -91,6 +91,7 @@
             this.ResetPointsButton.TabIndex = 4;
             this.ResetPointsButton.Text = "Reset chosen points";
             this.ResetPointsButton.UseVisualStyleBackColor = false;
+            this.ResetPointsButton.Click += new System.EventHandler(this.ResetPointsButton_Click);
             // 
             // AmountPointsLabel
             // 

@@ -89,5 +89,13 @@ namespace ColorReduction
                 lastProcessedImage.Save(saveFile.FileName, ImageFormat.Jpeg);
             }
         }
+
+        private void ResetPointsButton_Click(object sender, EventArgs e)
+        {
+            UploadedPictureBox.Image = originalImage;
+            ImageFullViewForm imageForm = new ImageFullViewForm(originalImage, this);
+            this.Hide();
+            imageForm.ShowDialog();
+        }
     }
 }
