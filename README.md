@@ -22,7 +22,7 @@ After picking some pixels of colors you would like to be used for reduction, you
 
 ### Random points mode
 
-In this working mode pixels for the color choosing are picked randomly from the image. User can change number of points picked for each output image. Right now there are 4 output images on the form, for each output image there is a text box to set number of pixels to pick. User also can change random seed for the picking algorithm to try get different outcomes. Unfortunately saving is implemented only for the fourth output image right now.
+In this working mode pixels for the color choosing are picked randomly from the image. User can change number of points picked for each output image. Right now there are 4 output images on the form, for each output image there is a text box to set number of pixels to pick. User also can change random seed for the picking algorithm to try get different outcomes. You can save any output image just by clicking on it.
 
 ![screenshot](Screenshots/ColorReductionForm-random.jpg)
 

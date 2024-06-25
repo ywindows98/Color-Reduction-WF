@@ -43,7 +43,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.RandomSeedTB = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.SaveImageButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.UploadedPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProcessedPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProcessedPictureBox2)).BeginInit();
@@ -108,6 +107,7 @@
             this.ProcessedPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ProcessedPictureBox2.TabIndex = 5;
             this.ProcessedPictureBox2.TabStop = false;
+            this.ProcessedPictureBox2.Click += new System.EventHandler(this.ProcessedPictureBox2_Click);
             // 
             // ProcessedPictureBox3
             // 
@@ -117,6 +117,7 @@
             this.ProcessedPictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ProcessedPictureBox3.TabIndex = 6;
             this.ProcessedPictureBox3.TabStop = false;
+            this.ProcessedPictureBox3.Click += new System.EventHandler(this.ProcessedPictureBox3_Click);
             // 
             // ProcessedPictureBox4
             // 
@@ -126,6 +127,7 @@
             this.ProcessedPictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ProcessedPictureBox4.TabIndex = 7;
             this.ProcessedPictureBox4.TabStop = false;
+            this.ProcessedPictureBox4.Click += new System.EventHandler(this.ProcessedPictureBox4_Click);
             // 
             // NumberOfSamplesTB1
             // 
@@ -192,24 +194,11 @@
             this.label2.TabIndex = 14;
             this.label2.Text = "Random seed:";
             // 
-            // SaveImageButton
-            // 
-            this.SaveImageButton.BackColor = System.Drawing.Color.LightGreen;
-            this.SaveImageButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SaveImageButton.Location = new System.Drawing.Point(27, 591);
-            this.SaveImageButton.Name = "SaveImageButton";
-            this.SaveImageButton.Size = new System.Drawing.Size(155, 50);
-            this.SaveImageButton.TabIndex = 15;
-            this.SaveImageButton.Text = "Save resulting image";
-            this.SaveImageButton.UseVisualStyleBackColor = false;
-            this.SaveImageButton.Click += new System.EventHandler(this.SaveImageButton_Click);
-            // 
             // ColorReductionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1630, 819);
-            this.Controls.Add(this.SaveImageButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.RandomSeedTB);
             this.Controls.Add(this.label1);
@@ -255,6 +244,5 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox RandomSeedTB;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button SaveImageButton;
     }
 }

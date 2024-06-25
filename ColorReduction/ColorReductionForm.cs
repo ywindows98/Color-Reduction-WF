@@ -83,17 +83,7 @@ namespace ColorReduction
 
         }
 
-        private void ProcessedPictureBox_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ColorReductionForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void SaveImageButton_Click(object sender, EventArgs e)
+        private void SaveProcessedImage(Bitmap image)
         {
             SaveFileDialog saveFile = new SaveFileDialog();
             saveFile.Filter = "JPG Image|*.jpg";
@@ -101,8 +91,35 @@ namespace ColorReduction
 
             if (saveFile.ShowDialog() == DialogResult.OK)
             {
-                lastProcessedImage.Save(saveFile.FileName, ImageFormat.Jpeg);
+                image.Save(saveFile.FileName, ImageFormat.Jpeg);
             }
         }
+
+        private void ProcessedPictureBox_Click(object sender, EventArgs e)
+        {
+            SaveProcessedImage((Bitmap)ProcessedPictureBox1.Image);
+        }
+
+        private void ProcessedPictureBox2_Click(object sender, EventArgs e)
+        {
+            SaveProcessedImage((Bitmap)ProcessedPictureBox2.Image);
+        }
+
+        private void ProcessedPictureBox3_Click(object sender, EventArgs e)
+        {
+            SaveProcessedImage((Bitmap)ProcessedPictureBox3.Image);
+        }
+
+        private void ProcessedPictureBox4_Click(object sender, EventArgs e)
+        {
+            SaveProcessedImage((Bitmap)ProcessedPictureBox4.Image);
+        }
+
+        private void ColorReductionForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }
