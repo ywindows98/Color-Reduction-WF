@@ -32,10 +32,18 @@ namespace ColorReduction
         {
             Bitmap image = (Bitmap)originalImage.Clone();
 
-            for(int i=1; i<=8; i++)
-            {
+            List<PictureBox> boxes = new List<PictureBox>() {SmoothingStage1Box, SmoothingStage2Box, SmoothingStage3Box, SmoothingStage4Box};
 
+            for(int i=1; i<=400; i++)
+            {
+                image = Smoother.SmoothTheEdges(image);
+                if (i % 100 == 0)
+                {
+                    boxes[i / 100 - 1].Image = image;
+                }
             }
+            
+
         }
     }
 }

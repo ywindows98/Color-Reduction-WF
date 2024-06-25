@@ -96,6 +96,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Smoother.cs" />
     <Compile Include="SmootherForm.cs">
       <SubType>Form</SubType>
     </Compile>
