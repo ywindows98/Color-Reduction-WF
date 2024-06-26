@@ -10,7 +10,7 @@ namespace ColorReduction
     public static class ColorDecider
     {
 
-        public static double CalculateDistanceBetweenTwoColors(Color mainColor, Color secondaryColor)
+        private static double CalculateDistanceBetweenTwoColors(Color mainColor, Color secondaryColor)
         {
             double distance = 0;
 

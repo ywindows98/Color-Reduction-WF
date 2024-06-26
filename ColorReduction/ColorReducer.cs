@@ -9,7 +9,7 @@ namespace ColorReduction
 {
     public static class ColorReducer
     {
-        public static List<int[]> ChooseRandomSamplesCoordinates(int numberOfSamples, Bitmap image, int seed)
+        private static List<int[]> ChooseRandomSamplesCoordinates(int numberOfSamples, Bitmap image, int seed)
         {
             Random rnd = new Random(seed);
             
@@ -28,7 +28,7 @@ namespace ColorReduction
             return chosenCoordinates;
         }
 
-        public static HashSet<Color> GetPixelsByCoordinates(List<int[]> coordinates, Bitmap image)
+        private static HashSet<Color> GetPixelsByCoordinates(List<int[]> coordinates, Bitmap image)
         {
             HashSet<Color> chosenPixels = new HashSet<Color>();
             Color chosenPixel;
@@ -42,7 +42,7 @@ namespace ColorReduction
             return chosenPixels;
         }
 
-        public static HashSet<Color> GetAllowedPalleteByPixelSamples(HashSet<Color> pixelSamples, HashSet<Color> fullPallete)
+        private static HashSet<Color> GetAllowedPalleteByPixelSamples(HashSet<Color> pixelSamples, HashSet<Color> fullPallete)
         {
             HashSet<Color> allowedPallete = new HashSet<Color>();
             Color allowedColor;
@@ -56,7 +56,7 @@ namespace ColorReduction
             return allowedPallete;
         }
 
-        public static HashSet<Color> GetAllowedPalleteBySampleCoordinates(List<int[]> coordinates, Bitmap image, HashSet<Color> fullPallete)
+        private static HashSet<Color> GetAllowedPalleteBySampleCoordinates(List<int[]> coordinates, Bitmap image, HashSet<Color> fullPallete)
         {
             HashSet<Color> pixelSamples = GetPixelsByCoordinates(coordinates, image);
             HashSet<Color> allowedPallete = GetAllowedPalleteByPixelSamples(pixelSamples, fullPallete);

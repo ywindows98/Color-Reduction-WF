@@ -62,11 +62,20 @@ namespace ColorReduction
             lastProcessedImage = (Bitmap)processedImage.Clone();
             ProcessedPictureBox.Image = processedImage;
 
+            // Color info
+            int imagePixelCount = processedImage.Width * processedImage.Height;
+            Dictionary<Color, int> colorCountPairs = ColorCounter.GetColorPixelCountPairs(usedColors, processedImage);
+
             // Logs
             string logText = "";
-            logText += $"Number of used colors for picture: {usedColors.Count}\n";
+            logText += $"Number of used colors for picture: {usedColors.Count} | Avg: {(float)imagePixelCount/(float)usedColors.Count}\n";
+            foreach(Color color in colorCountPairs.Keys)
+            {
+                logText += $"Color {color.R}, {color.G}, {color.B}: {colorCountPairs[color]} | {(float)colorCountPairs[color]/(float)imagePixelCount * 100}%\n";
+            }
 
             ConsoleTextBox.Text = logText;
+
         }
 
         private void UploadedPictureBox_MouseClick(object sender, MouseEventArgs e)
@@ -97,5 +106,7 @@ namespace ColorReduction
             this.Hide();
             imageForm.ShowDialog();
         }
+
+        
     }
 }

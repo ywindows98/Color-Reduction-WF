@@ -43,12 +43,12 @@ namespace ColorReduction
             List<int> numbersOfOccurrences;
             Bitmap resultingImage = (Bitmap)image.Clone();
 
-            for(int w=0; w<image.Width; w++)
+            for(int w=0; w<resultingImage.Width; w++)
             {
-                for(int h=0; h<image.Height; h++)
+                for(int h=0; h<resultingImage.Height; h++)
                 {
-                    currentPixel = image.GetPixel(w, h);
-                    neighbors = GetNeighbors(image, w, h);
+                    currentPixel = resultingImage.GetPixel(w, h);
+                    neighbors = GetNeighbors(resultingImage, w, h);
                     numberOfDifferentPixels = neighbors.Count(pixelColor => pixelColor != currentPixel);
 
                     if (numberOfDifferentPixels >= 3)
@@ -60,7 +60,7 @@ namespace ColorReduction
                             numbersOfOccurrences.Add(neighbors.Count(pixelColor => pixelColor == color));
                         }
 
-                        if (numbersOfOccurrences.Max() >= 2)
+                        if (numbersOfOccurrences.Max() >= 3)
                         {
                             mostPopularColor = neighbors[numbersOfOccurrences.FindIndex(number => number == numbersOfOccurrences.Max())];
                             if (mostPopularColor != currentPixel)

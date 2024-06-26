@@ -78,6 +78,7 @@
     <Compile Include="ChoiceForm.Designer.cs">
       <DependentUpon>ChoiceForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ColorCounter.cs" />
     <Compile Include="ColorDecider.cs" />
     <Compile Include="ColorReducer.cs" />
     <Compile Include="ColorReductionForm.cs">

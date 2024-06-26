@@ -36,8 +36,13 @@
             this.AmountPointsLabel = new System.Windows.Forms.Label();
             this.ConsoleTextBox = new System.Windows.Forms.RichTextBox();
             this.SaveImageButton = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.UploadedPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProcessedPictureBox)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // UploadedPictureBox
@@ -107,7 +112,7 @@
             // 
             this.ConsoleTextBox.Location = new System.Drawing.Point(945, 504);
             this.ConsoleTextBox.Name = "ConsoleTextBox";
-            this.ConsoleTextBox.Size = new System.Drawing.Size(292, 191);
+            this.ConsoleTextBox.Size = new System.Drawing.Size(300, 180);
             this.ConsoleTextBox.TabIndex = 8;
             this.ConsoleTextBox.Text = "";
             // 
@@ -123,11 +128,43 @@
             this.SaveImageButton.UseVisualStyleBackColor = false;
             this.SaveImageButton.Click += new System.EventHandler(this.SaveImageButton_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.pictureBox1);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBox1.Location = new System.Drawing.Point(945, 700);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(300, 65);
+            this.groupBox1.TabIndex = 10;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "233, 15, 20";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.RosyBrown;
+            this.pictureBox1.Location = new System.Drawing.Point(6, 21);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(32, 35);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(44, 33);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(108, 16);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "1902 pixels | 13%";
+            // 
             // SpecificPointsReductionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1352, 822);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.SaveImageButton);
             this.Controls.Add(this.ConsoleTextBox);
             this.Controls.Add(this.AmountPointsLabel);
@@ -140,6 +177,9 @@
             this.Text = "SpecificPointsReductionForm";
             ((System.ComponentModel.ISupportInitialize)(this.UploadedPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProcessedPictureBox)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -155,5 +195,8 @@
         private System.Windows.Forms.Label AmountPointsLabel;
         private System.Windows.Forms.RichTextBox ConsoleTextBox;
         private System.Windows.Forms.Button SaveImageButton;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
