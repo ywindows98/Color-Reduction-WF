@@ -39,6 +39,22 @@ namespace ColorReduction
                 imageForm.ShowDialog();
                 
             }
+
+            //GroupBox gbox = new GroupBox();
+
+            //gbox.Width = 300;
+            //gbox.Height = 65;
+            //gbox.Text = "Color";
+            //gbox.Location = new Point(AmountPointsLabel.Location.X, AmountPointsLabel.Location.Y+AmountPointsLabel.Height+25);
+            ////GroupBoxRenderer.DrawGroupBox();
+            //this.Controls.Add(gbox);
+
+            //Label lab = new Label();
+            //lab.Text = "text";
+            //lab.Location = new Point(50, 10);
+            //gbox.Controls.Add(lab);
+            ColorCountGroupBox gbox = new ColorCountGroupBox(new Point(AmountPointsLabel.Location.X, AmountPointsLabel.Location.Y + AmountPointsLabel.Height + 25), Color.Violet, 24005, 23.8f);
+            this.Controls.Add(gbox);
             
         }
 

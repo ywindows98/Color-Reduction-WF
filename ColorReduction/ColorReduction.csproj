@@ -79,6 +79,9 @@
       <DependentUpon>ChoiceForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ColorCounter.cs" />
+    <Compile Include="ColorCountGroupBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ColorDecider.cs" />
     <Compile Include="ColorReducer.cs" />
     <Compile Include="ColorReductionForm.cs">
