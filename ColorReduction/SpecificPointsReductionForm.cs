@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -39,22 +40,6 @@ namespace ColorReduction
                 imageForm.ShowDialog();
                 
             }
-
-            //GroupBox gbox = new GroupBox();
-
-            //gbox.Width = 300;
-            //gbox.Height = 65;
-            //gbox.Text = "Color";
-            //gbox.Location = new Point(AmountPointsLabel.Location.X, AmountPointsLabel.Location.Y+AmountPointsLabel.Height+25);
-            ////GroupBoxRenderer.DrawGroupBox();
-            //this.Controls.Add(gbox);
-
-            //Label lab = new Label();
-            //lab.Text = "text";
-            //lab.Location = new Point(50, 10);
-            //gbox.Controls.Add(lab);
-            ColorCountGroupBox gbox = new ColorCountGroupBox(new Point(AmountPointsLabel.Location.X, AmountPointsLabel.Location.Y + AmountPointsLabel.Height + 25), Color.Violet, 24005, 23.8f);
-            this.Controls.Add(gbox);
             
         }
 
@@ -91,6 +76,24 @@ namespace ColorReduction
             }
 
             ConsoleTextBox.Text = logText;
+
+
+            usedColors = usedColors.OrderBy(color => colorCountPairs[color]).ToList();
+            usedColors.Reverse();
+            
+            Control lastControl = ConsoleTextBox;
+            List<GroupBox> colorGBoxes = new List<GroupBox>();
+            Point nextLocation;
+            float currentPercentage;
+            foreach(Color color in usedColors)
+            {
+                nextLocation = new Point(lastControl.Location.X, lastControl.Location.Y + lastControl.Height + 20);
+                currentPercentage = (float)Math.Round((float)colorCountPairs[color] / (float)imagePixelCount * 100, 2);
+                colorGBoxes.Add(new ColorCountGroupBox(nextLocation, color, colorCountPairs[color], currentPercentage));
+                lastControl = colorGBoxes.Last();
+                this.Controls.Add(colorGBoxes.Last());
+
+            }
 
         }
 
