@@ -79,7 +79,7 @@ namespace ColorReduction
             SelectedBox.Text = "";
             SelectedBox.CheckState= CheckState.Checked;
             SelectedBox.Enabled = false;
-            SelectedBox.CheckedChanged = CreateCountLabel();
+            
         }
 
     }

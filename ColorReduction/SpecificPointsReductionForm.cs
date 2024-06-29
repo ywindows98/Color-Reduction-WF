@@ -159,6 +159,29 @@ namespace ColorReduction
 
         private void SelectedColorsChanged(object sender, EventArgs e)
         {
+            List<Color> unselectedColors = new List<Color>();
+            foreach(Color color in colorCheckBoxPairs.Keys)
+            {
+                if (!colorCheckBoxPairs[color].Checked)
+                {
+                    unselectedColors.Add(color);
+                }
+            }
+
+            lastColorSpecifiedImage = (Bitmap)lastProcessedImage.Clone();
+
+            for(int w=0; w<lastColorSpecifiedImage.Width; w++)
+            {
+                for(int h=0; h<lastColorSpecifiedImage.Height; h++)
+                {
+                    if (unselectedColors.Contains(lastColorSpecifiedImage.GetPixel(w, h)))
+                    {
+                        lastColorSpecifiedImage.SetPixel(w, h, Color.White);
+                    }
+                }
+            }
+
+            ProcessedPictureBox.Image = lastColorSpecifiedImage;
 
         }
     }
