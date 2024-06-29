@@ -16,6 +16,7 @@ namespace ColorReduction
         private float percentage;
         private PictureBox btmBox;
         private Label countLabel;
+        public CheckBox SelectedBox { get; set; }
 
         public ColorCountGroupBox(Point location, Color color, int pixelCount, float percentage)
         {
@@ -38,6 +39,8 @@ namespace ColorReduction
             Controls.Add(btmBox);
             CreateCountLabel();
             Controls.Add(countLabel);
+            CreateSelectedCheckBox();
+            Controls.Add(SelectedBox);
         }
 
         private void CreatePictureBoxWithMainColor(int width, int height)
@@ -63,9 +66,20 @@ namespace ColorReduction
             countLabel = new Label();
             countLabel.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Regular);
             countLabel.Text = $"{pixelCount} pixels | {percentage}%";
-            countLabel.Width = (int)(Width*0.65);
+            countLabel.Width = (int)(Width*0.55);
             countLabel.Location = new Point(btmBox.Location.X + btmBox.Width + 20, (Height - countLabel.Height) / 2);
 
+        }
+        private void CreateSelectedCheckBox()
+        {
+            SelectedBox = new CheckBox();
+            SelectedBox.Width = 20;
+            SelectedBox.Height = 20;
+            SelectedBox.Location = new Point(countLabel.Location.X + countLabel.Width + 10, (Height - countLabel.Height) / 2);
+            SelectedBox.Text = "";
+            SelectedBox.CheckState= CheckState.Checked;
+            SelectedBox.Enabled = false;
+            SelectedBox.CheckedChanged = CreateCountLabel();
         }
 
     }

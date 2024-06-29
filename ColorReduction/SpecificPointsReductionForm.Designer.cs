@@ -36,6 +36,7 @@
             this.AmountPointsLabel = new System.Windows.Forms.Label();
             this.ConsoleTextBox = new System.Windows.Forms.RichTextBox();
             this.SaveImageButton = new System.Windows.Forms.Button();
+            this.SelectionEnablerCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.UploadedPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProcessedPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -123,12 +124,24 @@
             this.SaveImageButton.UseVisualStyleBackColor = false;
             this.SaveImageButton.Click += new System.EventHandler(this.SaveImageButton_Click);
             // 
+            // SelectionEnablerCheckBox
+            // 
+            this.SelectionEnablerCheckBox.AutoSize = true;
+            this.SelectionEnablerCheckBox.Location = new System.Drawing.Point(736, 655);
+            this.SelectionEnablerCheckBox.Name = "SelectionEnablerCheckBox";
+            this.SelectionEnablerCheckBox.Size = new System.Drawing.Size(149, 17);
+            this.SelectionEnablerCheckBox.TabIndex = 10;
+            this.SelectionEnablerCheckBox.Text = "Show only selected colors";
+            this.SelectionEnablerCheckBox.UseVisualStyleBackColor = true;
+            this.SelectionEnablerCheckBox.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // SpecificPointsReductionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1352, 822);
+            this.Controls.Add(this.SelectionEnablerCheckBox);
             this.Controls.Add(this.SaveImageButton);
             this.Controls.Add(this.ConsoleTextBox);
             this.Controls.Add(this.AmountPointsLabel);
@@ -156,5 +169,6 @@
         private System.Windows.Forms.Label AmountPointsLabel;
         private System.Windows.Forms.RichTextBox ConsoleTextBox;
         private System.Windows.Forms.Button SaveImageButton;
+        private System.Windows.Forms.CheckBox SelectionEnablerCheckBox;
     }
 }

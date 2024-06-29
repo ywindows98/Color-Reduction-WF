@@ -17,6 +17,11 @@ namespace ColorReduction
         public List<int[]> ChosenCoordinates { get; set; }
         private Bitmap originalImage;
         private Bitmap lastProcessedImage;
+        private Bitmap lastColorSpecifiedImage;
+        private bool colorSelectionCheckBoxesEnabled = false;
+        private Dictionary<Color, CheckBox> colorCheckBoxPairs;
+        private List<GroupBox> colorGBoxes;
+       
         public SpecificPointsReductionForm()
         {
             InitializeComponent();
@@ -61,6 +66,7 @@ namespace ColorReduction
             usedColors = tupleProcessed.Item2;
 
             lastProcessedImage = (Bitmap)processedImage.Clone();
+            lastColorSpecifiedImage = (Bitmap)lastProcessedImage.Clone();
             ProcessedPictureBox.Image = processedImage;
 
             // Color info
@@ -82,9 +88,10 @@ namespace ColorReduction
             usedColors.Reverse();
             
             Control lastControl = ConsoleTextBox;
-            List<GroupBox> colorGBoxes = new List<GroupBox>();
+            colorGBoxes = new List<GroupBox>();
             Point nextLocation;
             float currentPercentage;
+            colorCheckBoxPairs = new Dictionary<Color, CheckBox>();
             foreach(Color color in usedColors)
             {
                 nextLocation = new Point(lastControl.Location.X, lastControl.Location.Y + lastControl.Height + 20);
@@ -92,8 +99,12 @@ namespace ColorReduction
                 colorGBoxes.Add(new ColorCountGroupBox(nextLocation, color, colorCountPairs[color], currentPercentage));
                 lastControl = colorGBoxes.Last();
                 this.Controls.Add(colorGBoxes.Last());
-
+                colorCheckBoxPairs.Add(color, ((ColorCountGroupBox)colorGBoxes.Last()).SelectedBox);
+                colorCheckBoxPairs[color].CheckedChanged += new EventHandler(SelectedColorsChanged);
             }
+
+
+           
 
         }
 
@@ -126,6 +137,29 @@ namespace ColorReduction
             imageForm.ShowDialog();
         }
 
-        
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+            colorSelectionCheckBoxesEnabled = !colorSelectionCheckBoxesEnabled;
+            foreach (CheckBox chBox in colorCheckBoxPairs.Values)
+            {
+                chBox.Enabled = colorSelectionCheckBoxesEnabled;
+            }
+
+            if (!colorSelectionCheckBoxesEnabled)
+            {
+                ProcessedPictureBox.Image = lastProcessedImage;
+            }
+            else
+            {
+                ProcessedPictureBox.Image = lastColorSpecifiedImage;
+            }
+
+        }
+
+        private void SelectedColorsChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
